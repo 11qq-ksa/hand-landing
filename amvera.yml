@@ -6,14 +6,14 @@ meta:
     version: "18"
 build:
   skip: false
+  additionalCommands: npm install && npm run build
   artifacts:
     "*": /
-  additionalCommands: cd /git && npm install && npm run build
 run:
   persistenceMount: /data
   scriptName: ""
   scriptArguments: null
   nodeArguments: null
-  command: cd /git && npm start
+  command: npm start
   containerPort: 3000
 serviceType: compute
