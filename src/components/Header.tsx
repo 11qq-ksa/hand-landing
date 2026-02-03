@@ -59,7 +59,7 @@ export const Header = () => {
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-hand-red text-xs font-bold text-[#F7F2EB] shadow-lg">
               H
             </span>
-            <span className="hidden sm:inline">HAND Agency</span>
+            <span className="hidden sm:inline font-nabla">HAND Agency</span>
           </button>
 
           <div className="flex items-center gap-4">
@@ -134,4 +134,3 @@ export const Header = () => {
     </header>
   );
 };
-

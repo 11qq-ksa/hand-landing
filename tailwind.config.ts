@@ -14,7 +14,8 @@ const config: Config = {
       },
       fontFamily: {
         display: ["system-ui", "ui-sans-serif", "SF Pro Display", "Inter", "sans-serif"],
-        body: ["system-ui", "ui-sans-serif", "Inter", "sans-serif"]
+        body: ["system-ui", "ui-sans-serif", "Inter", "sans-serif"],
+        nabla: ["var(--font-nabla)", "cursive"]
       },
       boxShadow: {
         glass: "0 18px 45px rgba(0,0,0,0.35)"
@@ -31,4 +32,3 @@ const config: Config = {
 };
 
 export default config;
-
