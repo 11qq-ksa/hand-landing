@@ -52,14 +52,12 @@ export const Header = () => {
 			<nav className="section-padding">
 				<div className="max-width flex items-center justify-between py-4">
 					<button
-						className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em]"
+						className="flex items-center gap-3 text-base font-bold uppercase tracking-[0.18em]"
 						onClick={() => scrollToSection("hero")}
 						aria-label="Вернуться в начало"
 					>
-						<span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-hand-red text-xs font-bold text-[#F7F2EB] shadow-lg">
-							<img src="/logo.svg" alt="HAND Logo" className="h-5 w-5 object-contain" />
-						</span>
-						<span className="hidden sm:inline font-nabla">HAND Agency</span>
+						<img src="/logo.svg" alt="HAND Logo" className="h-10 w-10 object-contain" />
+						<span className="hidden sm:inline font-nunito text-lg">HAND Agency</span>
 					</button>
 
 					<div className="flex items-center gap-4">
