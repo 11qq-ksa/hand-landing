@@ -59,12 +59,20 @@ export const ParticlesField = ({ id, className, config }: ParticlesFieldProps) =
     };
 
     const setup = async () => {
-      await loadParticles();
-      if (!mounted || !container) return;
-      const particlesJS = (window as any).particlesJS as
-        | ((tagId: string, params: Record<string, unknown>) => void)
-        | undefined;
-      particlesJS?.(containerId, (config ?? DEFAULT_CONFIG) as Record<string, unknown>);
+      try {
+        await loadParticles();
+        if (!mounted || !container) return;
+        
+        const particlesJS = (window as any).particlesJS as
+          | ((tagId: string, params: Record<string, unknown>) => void)
+          | undefined;
+        
+        if (particlesJS) {
+          particlesJS(containerId, (config ?? DEFAULT_CONFIG) as Record<string, unknown>);
+        }
+      } catch (err) {
+        console.error('Failed to load particles:', err);
+      }
     };
 
     setup();
@@ -79,5 +87,5 @@ export const ParticlesField = ({ id, className, config }: ParticlesFieldProps) =
     };
   }, [containerId, config]);
 
-  return <div id={containerId} className={className} />;
+  return <div id={containerId} className={`particles-js ${className || ""}`} />;
 };

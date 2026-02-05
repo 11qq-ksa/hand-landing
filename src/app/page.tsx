@@ -191,59 +191,19 @@ export default function Page() {
 
             <div className="flex-1 flex justify-center md:justify-end">
               <motion.div
-                className="relative w-full max-w-[360px] sm:max-w-[420px] aspect-square rounded-[48px] border border-white/20 shadow-2xl overflow-hidden bg-[#1B2F7A]/70"
-                variants={heroCircleVariants}
-                initial="rest"
-                whileHover="hover"
-                whileTap="tap"
-                aria-label="Блок приветствия"
+                className="relative flex items-center justify-center"
+                whileHover={{ 
+                  x: [0, -2, 2, -2, 2, 0],
+                  y: [0, 2, -2, 2, -2, 0],
+                  transition: { duration: 0.3, repeat: Infinity }
+                }}
+                aria-label="HAND Logo"
               >
-                <ParticlesField
-                  className="particles-field absolute inset-0"
-                  config={{
-                    particles: {
-                      number: { value: 78, density: { enable: true, value_area: 820 } },
-                      color: { value: ["#F7F2EB", "#82AAFF", "#2350D2"] },
-                      shape: { type: "circle" },
-                      opacity: { value: 0.55, random: true },
-                      size: { value: 2.8, random: true },
-                      line_linked: {
-                        enable: true,
-                        distance: 170,
-                        color: "#82AAFF",
-                        opacity: 0.35,
-                        width: 1
-                      },
-                      move: { enable: true, speed: 1.0, direction: "none", out_mode: "out" }
-                    },
-                    interactivity: {
-                      detect_on: "canvas",
-                      events: { onhover: { enable: true, mode: "grab" }, resize: true },
-                      modes: { grab: { distance: 190, line_linked: { opacity: 0.45 } } }
-                    },
-                    retina_detect: true
-                  }}
+                <img
+                  src="/logo.svg"
+                  alt="HAND Logo"
+                  className="h-48 w-48 sm:h-64 sm:w-64 md:h-80 md:w-80 object-contain drop-shadow-2xl"
                 />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(130,170,255,0.28),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(35,80,210,0.45),_transparent_60%)]" />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0B1020]/40 via-transparent to-black/60" />
-
-                <div className="relative z-10 flex h-full flex-col items-center justify-center gap-6 p-8 text-center">
-                  <div className="h-40 w-40 sm:h-52 sm:w-52 rounded-full bg-white/10 border border-white/25 shadow-2xl flex items-center justify-center backdrop-blur">
-                    <img
-                      src="/logo.svg"
-                      alt="HAND Logo"
-                      className="h-24 w-24 sm:h-32 sm:w-32 object-contain"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-[11px] uppercase tracking-[0.4em] text-white/80">
-                      агентство полного цикла
-                    </p>
-                    <p className="text-3xl sm:text-4xl font-display font-black uppercase tracking-[0.24em]">
-                      ПРИВЕТ
-                    </p>
-                  </div>
-                </div>
               </motion.div>
             </div>
           </div>
