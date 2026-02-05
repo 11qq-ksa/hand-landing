@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { useInViewOnce } from "@/components/useInViewOnce";
+import { Preloader } from "@/components/Preloader";
+import { ParticlesField } from "@/components/ParticlesField";
 
 const CaseStudiesSection = dynamic(
   () => import("@/components/CaseStudiesSection").then(mod => mod.CaseStudiesSection),
@@ -111,6 +113,7 @@ export default function Page() {
 
   return (
     <>
+      <Preloader />
       <Header />
       <main className="bg-black text-white">
         {/* HERO */}
@@ -187,39 +190,61 @@ export default function Page() {
             </div>
 
             <div className="flex-1 flex justify-center md:justify-end">
-              <motion.button
-                className="relative h-64 w-64 sm:h-72 sm:w-72 rounded-full bg-white/5 border border-white/20 shadow-2xl overflow-hidden flex items-center justify-center"
+              <motion.div
+                className="relative w-full max-w-[360px] sm:max-w-[420px] aspect-square rounded-[48px] border border-white/20 shadow-2xl overflow-hidden bg-[#1B2F7A]/70"
                 variants={heroCircleVariants}
                 initial="rest"
                 whileHover="hover"
                 whileTap="tap"
-                aria-label="Главная интерактивная кнопка"
+                aria-label="Блок приветствия"
               >
-                <div className="absolute inset-[22%] rounded-full border border-black/25" />
-                <div className="absolute inset-[40%] rounded-full border border-black/35" />
-
-                <div className="absolute inset-[12%] -skew-y-6 bg-[repeating-linear-gradient(135deg,_rgba(0,0,0,0.94)_0,_rgba(0,0,0,0.94)_6px,_rgba(255,255,255,0.15)_6px,_rgba(255,255,255,0.15)_9px)] mix-blend-multiply opacity-80" />
-
-                <motion.div
-                  className="relative z-10 flex flex-col items-center gap-3"
-                  animate={{ y: [0, -4, 0] }}
-                  transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
-                >
-                  <span className="rounded-full bg-white px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.26em] text-black">
-                    press to start
-                  </span>
-                  <span className="text-[11px] uppercase tracking-[0.22em] text-black/80">
-                    full cycle agency
-                  </span>
-                </motion.div>
-
-                <motion.div
-                  aria-hidden
-                  className="absolute inset-0 rounded-full border border-black/25"
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ repeat: Infinity, duration: 18, ease: "linear" }}
+                <ParticlesField
+                  className="particles-field absolute inset-0"
+                  config={{
+                    particles: {
+                      number: { value: 78, density: { enable: true, value_area: 820 } },
+                      color: { value: ["#F7F2EB", "#82AAFF", "#2350D2"] },
+                      shape: { type: "circle" },
+                      opacity: { value: 0.55, random: true },
+                      size: { value: 2.8, random: true },
+                      line_linked: {
+                        enable: true,
+                        distance: 170,
+                        color: "#82AAFF",
+                        opacity: 0.35,
+                        width: 1
+                      },
+                      move: { enable: true, speed: 1.0, direction: "none", out_mode: "out" }
+                    },
+                    interactivity: {
+                      detect_on: "canvas",
+                      events: { onhover: { enable: true, mode: "grab" }, resize: true },
+                      modes: { grab: { distance: 190, line_linked: { opacity: 0.45 } } }
+                    },
+                    retina_detect: true
+                  }}
                 />
-              </motion.button>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(130,170,255,0.28),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(35,80,210,0.45),_transparent_60%)]" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0B1020]/40 via-transparent to-black/60" />
+
+                <div className="relative z-10 flex h-full flex-col items-center justify-center gap-6 p-8 text-center">
+                  <div className="h-40 w-40 sm:h-52 sm:w-52 rounded-full bg-white/10 border border-white/25 shadow-2xl flex items-center justify-center backdrop-blur">
+                    <img
+                      src="/logo.svg"
+                      alt="HAND Logo"
+                      className="h-24 w-24 sm:h-32 sm:w-32 object-contain"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-[11px] uppercase tracking-[0.4em] text-white/80">
+                      агентство полного цикла
+                    </p>
+                    <p className="text-3xl sm:text-4xl font-display font-black uppercase tracking-[0.24em]">
+                      ПРИВЕТ
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
 
@@ -659,4 +684,3 @@ export default function Page() {
     </>
   );
 }
-

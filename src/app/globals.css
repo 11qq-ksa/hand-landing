@@ -43,3 +43,7 @@ body.light {
   @apply max-w-6xl mx-auto;
 }
 
+.particles-field canvas {
+  filter: drop-shadow(0 0 6px rgba(130, 170, 255, 0.5))
+    drop-shadow(0 0 16px rgba(35, 80, 210, 0.45));
+}
