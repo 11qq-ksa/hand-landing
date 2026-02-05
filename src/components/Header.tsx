@@ -57,7 +57,7 @@ export const Header = () => {
 						aria-label="Вернуться в начало"
 					>
 						<img src="/logo.svg" alt="HAND Logo" className="h-10 w-10 object-contain" />
-						<span className="hidden sm:inline font-nunito text-lg">HAND Agency</span>
+						<span className="inline font-nunito text-base sm:text-lg">HAND Agency</span>
 					</button>
 
 					<div className="flex items-center gap-4">
