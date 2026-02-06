@@ -432,53 +432,179 @@ export default function Page() {
           aria-labelledby="pricing-title"
           className="section-padding py-18 md:py-24 bg-black"
         >
-          <div className="max-width">
+          <div className="max-width space-y-12">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={pricingVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start"
+              className="space-y-6"
             >
               <div>
                 <p className="text-xs uppercase tracking-[0.28em] text-hand-blueLight/80 mb-3">
-                  pricing
+                  услуги и цены
                 </p>
                 <h2
                   id="pricing-title"
                   className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold tracking-tight mb-4"
                 >
-                  Цены, которые{" "}
+                  Услуги, которые{" "}
                   <span className="bg-gradient-to-r from-hand-red to-hand-blueDeep bg-clip-text text-transparent">
-                    собираются под задачу
+                    масштабируются под задачу
                   </span>
                 </h2>
-                <p className="text-sm sm:text-base text-white/75 max-w-xl">
-                  Индивидуальные расценки под каждый проект — мы смотрим на объём, дедлайны, степень
-                  вовлечения команды, количество каналов и сложность продакшена.
+                <p className="text-sm sm:text-base text-white/75 max-w-3xl">
+                  Закрываем креатив, контент, дизайн и маркетинг под задачи бизнеса — от разовых
+                  задач до проектов под ключ. Цены стартовые и гибкие: собираем оптимальный набор по
+                  объёму, срокам и целям.
                 </p>
               </div>
+            </motion.div>
 
-              <div className="space-y-4">
+            <div className="space-y-6">
+              <div className="flex items-end justify-between gap-4">
+                <h3 className="text-xl sm:text-2xl font-display font-semibold">Видео / Съёмка / Монтаж</h3>
+                <span className="text-[11px] uppercase tracking-[0.24em] text-white/50">карточки</span>
+              </div>
+              <div className="grid gap-4 md:grid-cols-3">
                 <div className="glass-panel rounded-3xl p-5 sm:p-6">
-                  <p className="text-sm sm:text-base font-medium text-white/90 mb-2">
-                    Индивидуальные расценки под каждый проект
+                  <p className="text-sm sm:text-base font-semibold text-white/90 mb-3">
+                    Монтаж коротких видео (Reels / Shorts / TikTok)
                   </p>
-                  <p className="text-sm text-white/70">
-                    Свяжитесь с нами для уточнения стоимости — мы подготовим прозрачную структуру бюджета
-                    и предложим несколько вариантов по уровню вовлечения.
-                  </p>
+                  <ul className="space-y-2 text-sm text-white/70">
+                    <li>1 видео — 1 500 ₽</li>
+                    <li>5 видео — 6 000 ₽</li>
+                    <li>10 видео — 11 000 ₽</li>
+                    <li>30 видео — 30 000 ₽</li>
+                    <li>срочно (в день обращения) +30%</li>
+                    <li>сложные эффекты / графика +500–1 500 ₽</li>
+                  </ul>
                 </div>
-                <div className="glass-panel rounded-3xl p-5 sm:p-6 flex flex-col gap-3 text-[11px] text-white/65">
-                  <div className="flex items-center justify-between">
-                    <span>готовы к пилотным проектам и долгим дистанциям</span>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-hand-red/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-hand-red">
-                      launch mode
-                    </span>
-                  </div>
-                  <span>структура готова для добавления пакетов: старт, рост, масштаб.</span>
+                <div className="glass-panel rounded-3xl p-5 sm:p-6">
+                  <p className="text-sm sm:text-base font-semibold text-white/90 mb-3">
+                    Выездная съёмка (Новосибирск)
+                  </p>
+                  <ul className="space-y-2 text-sm text-white/70">
+                    <li>Контент-день (2 часа, 10–15 видео) — 15 000 ₽</li>
+                    <li>Расширенный контент-день (3–4 часа, 20–25 видео) — 25 000 ₽</li>
+                  </ul>
+                </div>
+                <div className="glass-panel rounded-3xl p-5 sm:p-6">
+                  <p className="text-sm sm:text-base font-semibold text-white/90 mb-3">
+                    Подкасты / интервью
+                  </p>
+                  <ul className="space-y-2 text-sm text-white/70">
+                    <li>помощь с кадром, светом и звуком (оборудование заказчика)</li>
+                    <li>съёмка и монтаж</li>
+                    <li>цена: от 10 000 ₽</li>
+                    <li>монтаж подкаста — от 3 000 ₽</li>
+                  </ul>
                 </div>
               </div>
-            </motion.div>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+              <div className="space-y-4">
+                <h3 className="text-xl sm:text-2xl font-display font-semibold">Фото</h3>
+                <div className="glass-panel rounded-3xl p-5 sm:p-6">
+                  <ul className="space-y-2 text-sm text-white/70">
+                    <li>предметная съёмка — от 5 000 ₽</li>
+                    <li>фото для маркетплейсов — от 5 000 ₽</li>
+                    <li>фото для соцсетей и рекламы — от 5 000 ₽</li>
+                    <li>lifestyle / репортаж — от 7 000 ₽</li>
+                    <li>ретушь и цветокоррекция — включено</li>
+                    <li>адаптация под форматы — включено</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-xl sm:text-2xl font-display font-semibold">Дизайн и визуальная упаковка</h3>
+                <div className="glass-panel rounded-3xl p-5 sm:p-6">
+                  <ul className="space-y-2 text-sm text-white/70">
+                    <li>оформление соцсетей — 5 000–15 000 ₽</li>
+                    <li>дизайн постов / сторис / обложек — от 500 ₽ / единица</li>
+                    <li>прайс-листы / меню — 3 000–10 000 ₽</li>
+                    <li>презентации / pitch deck — 7 000–25 000 ₽</li>
+                    <li>коммерческие предложения — 5 000–15 000 ₽</li>
+                    <li>баннеры и визуал для рекламы — от 1 000 ₽</li>
+                    <li>визуал для сайтов и лендингов — от 5 000 ₽</li>
+                    <li>базовая айдентика (мини бренд-пак) — 15 000–30 000 ₽</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              <div className="space-y-4">
+                <h3 className="text-xl sm:text-2xl font-display font-semibold">Тексты и контент</h3>
+                <div className="glass-panel rounded-3xl p-5 sm:p-6">
+                  <ul className="space-y-2 text-sm text-white/70">
+                    <li>тексты для соцсетей — от 3 000 ₽</li>
+                    <li>сценарии Reels / видео — 2 000 ₽</li>
+                    <li>продающие описания — 3 000–7 000 ₽</li>
+                    <li>тексты для сайтов / лендингов — 7 000–25 000 ₽</li>
+                    <li>тексты для маркетплейсов — от 3 000 ₽</li>
+                    <li>ресерч + написание контента — от 5 000 ₽</li>
+                    <li>редактура и улучшение текстов — от 2 000 ₽</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-xl sm:text-2xl font-display font-semibold">Креатив и маркетинг</h3>
+                <div className="glass-panel rounded-3xl p-5 sm:p-6">
+                  <ul className="space-y-2 text-sm text-white/70">
+                    <li>генерация идей и креативных концепций — от 5 000 ₽</li>
+                    <li>контент-стратегия — 10 000–30 000 ₽</li>
+                    <li>идеи для запусков и рекламных кампаний — от 7 000 ₽</li>
+                    <li>анализ конкурентов — от 5 000 ₽</li>
+                    <li>консультация (60 минут) — 5 000 ₽</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-xl sm:text-2xl font-display font-semibold">Пакеты и проекты под ключ</h3>
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="glass-panel rounded-3xl p-5 sm:p-6">
+                  <p className="text-sm sm:text-base font-semibold text-white/90 mb-2">
+                    Месячный контент + упаковка
+                  </p>
+                  <p className="text-sm text-white/70 mb-3">Видео + дизайн + тексты</p>
+                  <p className="text-sm text-white/85">Цена: 50 000–80 000 ₽</p>
+                </div>
+                <div className="glass-panel rounded-3xl p-5 sm:p-6">
+                  <p className="text-sm sm:text-base font-semibold text-white/90 mb-2">
+                    Контент + маркетинг + рост
+                  </p>
+                  <ul className="space-y-1 text-sm text-white/70 mb-3">
+                    <li>стратегия</li>
+                    <li>продакшен</li>
+                    <li>идеи и аналитика</li>
+                  </ul>
+                  <p className="text-sm text-white/85">Цена: 70 000–300 000 ₽</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-panel rounded-3xl p-6 sm:p-7 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div className="space-y-2">
+                <p className="text-sm sm:text-base font-medium text-white/90">
+                  Можно начать с небольшой задачи и масштабироваться.
+                </p>
+                <p className="text-sm text-white/70">
+                  Стоимость зависит от объёма и целей проекта.
+                </p>
+              </div>
+              <button
+                onClick={() => {
+                  const el = document.getElementById("contact");
+                  el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+                className="inline-flex items-center justify-between rounded-full bg-white text-black px-5 py-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              >
+                Обсудить проект
+              </button>
+            </div>
           </div>
         </section>
 
