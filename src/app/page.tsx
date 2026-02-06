@@ -435,7 +435,7 @@ export default function Page() {
                   className="relative overflow-hidden rounded-4xl"
                 >
                   <details
-                    className="price-card glass-panel rounded-4xl p-4 sm:p-5 md:p-6 group min-h-[250px] sm:min-h-[270px]"
+                    className="price-card glass-panel rounded-4xl p-3.5 sm:p-4 md:p-5 group min-h-[220px] sm:min-h-[240px]"
                     data-service
                     onToggle={handleServiceToggle}
                   >
