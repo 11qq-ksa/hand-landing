@@ -177,7 +177,6 @@ export const CaseStudiesSection = () => {
           {cases.map((item, index) => (
             <motion.article
               key={item.title}
-              layoutId={`case-card-${item.title}`}
               className={`relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-white/0 to-hand-red/15 ${item.span}`}
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 260, damping: 26 }}
@@ -245,12 +244,12 @@ export const CaseStudiesSection = () => {
             onClick={() => setActiveCase(null)}
           >
             <motion.article
-              layoutId={`case-card-${activeCase.title}`}
               className="relative mx-4 w-full max-w-5xl overflow-hidden rounded-[32px] border border-white/10 bg-[#0b0f1e]"
-              initial={{ scale: 0.96, y: 30, opacity: 0 }}
+              initial={{ scale: 0.98, y: 20, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.96, y: 30, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 220, damping: 24 }}
+              exit={{ scale: 0.98, y: 20, opacity: 0 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              style={{ willChange: "transform, opacity" }}
               onClick={event => event.stopPropagation()}
             >
               <div className="relative grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
@@ -310,10 +309,16 @@ export const CaseStudiesSection = () => {
               <div className="grid gap-3 border-t border-white/10 bg-black/20 p-4 sm:p-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
                 {activeCase.gallery.slice(1).map(image => (
                   <div key={image} className="relative h-40 overflow-hidden rounded-2xl border border-white/10">
-                    <Image src={image} alt="Дополнительный кадр кейса" fill className="object-cover" />
-                  </div>
-                ))}
-              </div>
+                  <Image
+                    src={image}
+                    alt="Дополнительный кадр кейса"
+                    fill
+                    loading="lazy"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
 
               <button
                 onClick={() => setActiveCase(null)}
