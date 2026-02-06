@@ -214,7 +214,7 @@ export default function Page() {
     <>
       <Preloader />
       <Header />
-      <main className="bg-black text-white">
+      <main className="bg-black text-white page-flow">
         {/* HERO */}
         <section
           id="hero"
@@ -324,7 +324,7 @@ export default function Page() {
           id="about"
           ref={aboutRef}
           aria-labelledby="about-title"
-          className="section-padding py-16 md:py-24 section-flow"
+          className="section-padding py-16 md:py-24"
         >
           <div className="max-width grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-center">
             <motion.div
@@ -386,7 +386,7 @@ export default function Page() {
           id="services"
           ref={servicesRef}
           aria-labelledby="services-title"
-          className="section-padding py-18 md:py-24 section-flow"
+          className="section-padding py-18 md:py-24"
         >
           <div className="max-width">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
@@ -498,7 +498,7 @@ export default function Page() {
           id="team"
           ref={teamRef}
           aria-labelledby="team-title"
-          className="section-padding py-18 md:py-24 section-flow"
+          className="section-padding py-18 md:py-24"
         >
           <div className="max-width">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
@@ -567,7 +567,7 @@ export default function Page() {
           id="contact"
           ref={contactRef}
           aria-labelledby="contact-title"
-          className="section-padding py-18 md:py-24 section-flow"
+          className="section-padding py-18 md:py-24"
         >
           <div className="max-width">
             <motion.div

@@ -43,14 +43,14 @@ body.light {
   @apply max-w-6xl mx-auto;
 }
 
-.section-flow {
+.page-flow {
   background-color: #000;
   background-image:
     radial-gradient(circle at top, rgba(130, 170, 255, 0.25), transparent 60%),
     radial-gradient(circle at bottom, rgba(255, 110, 80, 0.25), transparent 60%);
-  background-size: 180% 180%;
+  background-size: 220% 220%;
   background-position: 0% 0%, 100% 100%;
-  animation: handFlow 18s ease-in-out infinite;
+  animation: handFlow 22s ease-in-out infinite;
 }
 
 @keyframes handFlow {
@@ -66,7 +66,7 @@ body.light {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .section-flow {
+  .page-flow {
     animation: none;
   }
 }
