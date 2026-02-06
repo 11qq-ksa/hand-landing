@@ -5,10 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const SECTIONS = [
 	{ id: "about", label: "О нас" },
-	{ id: "services", label: "Услуги" },
+	{ id: "services", label: "Услуги и цены" },
 	{ id: "team", label: "Команда" },
 	{ id: "cases", label: "Кейсы" },
-	{ id: "pricing", label: "Цены" },
 	{ id: "contact", label: "Контакты" }
 ];
 
