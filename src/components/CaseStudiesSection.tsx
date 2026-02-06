@@ -43,7 +43,7 @@ export const CaseStudiesSection = () => {
       id="cases"
       ref={ref}
       aria-labelledby="cases-title"
-      className="section-padding py-20 md:py-28 bg-black"
+      className="section-padding py-20 md:py-28 section-flow"
     >
       <div className="max-width">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-10">
@@ -126,4 +126,3 @@ export const CaseStudiesSection = () => {
     </section>
   );
 };
-
