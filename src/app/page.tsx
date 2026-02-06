@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import type { SyntheticEvent } from "react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { useInViewOnce } from "@/components/useInViewOnce";
@@ -209,6 +210,15 @@ export default function Page() {
   const { ref: servicesRef, visible: servicesVisible } = useInViewOnce<HTMLDivElement>();
   const { ref: teamRef, visible: teamVisible } = useInViewOnce<HTMLDivElement>();
   const { ref: contactRef, visible: contactVisible } = useInViewOnce<HTMLDivElement>();
+
+  const handleServiceToggle = (event: SyntheticEvent<HTMLDetailsElement>) => {
+    const target = event.currentTarget;
+    if (!target.open) return;
+    const allCards = document.querySelectorAll<HTMLDetailsElement>("details[data-service]");
+    allCards.forEach(card => {
+      if (card !== target) card.removeAttribute("open");
+    });
+  };
 
   return (
     <>
@@ -422,9 +432,13 @@ export default function Page() {
                   key={service.title}
                   whileHover={{ y: -6 }}
                   transition={{ type: "spring", stiffness: 260, damping: 26 }}
-                  className="relative overflow-hidden rounded-4xl border border-white/10 bg-gradient-to-br from-white/5 via-white/0 to-hand-red/10 p-[1px]"
+                  className="relative overflow-hidden rounded-4xl"
                 >
-                  <details className="glass-panel rounded-4xl p-5 sm:p-6 md:p-7 group">
+                  <details
+                    className="price-card glass-panel rounded-4xl p-5 sm:p-6 md:p-7 group"
+                    data-service
+                    onToggle={handleServiceToggle}
+                  >
                     <summary className="list-none cursor-pointer [&::-webkit-details-marker]:hidden">
                       <div className="flex items-start justify-between gap-3 mb-4">
                         <div className="flex items-center gap-3">
@@ -436,22 +450,20 @@ export default function Page() {
                             <p className="text-xs text-hand-blueLight/80 mt-1">{service.short}</p>
                           </div>
                         </div>
-                        <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-[11px] font-medium text-white/70 group-hover:bg-hand-blueLight group-hover:text-black group-open:bg-hand-blueLight group-open:text-black transition-colors">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-[11px] font-medium text-white/70 group-hover:bg-hand-blueLight group-hover:text-black transition-colors">
                           +
                         </div>
                       </div>
                       <p className="text-sm text-white/75 leading-relaxed">
                         {service.description}
                       </p>
-                      <div className="mt-4 flex items-center justify-between text-[11px] text-white/60">
-                        <span>наведите или нажмите, чтобы раскрыть</span>
-                        <span className="inline-flex items-center gap-1 rounded-full bg-white/5 px-3 py-1 border border-white/10">
-                          <span className="h-1.5 w-1.5 rounded-full bg-hand-blueLight" />
-                          hover to expand
+                      <div className="mt-4 flex justify-end">
+                        <span className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 border border-white/10 text-[11px] text-white/70">
+                          нажми, чтобы увидеть цены на услуги
                         </span>
                       </div>
                     </summary>
-                    <div className="mt-4 space-y-4 overflow-hidden max-h-0 opacity-0 transition-all duration-300 group-hover:max-h-[900px] group-hover:opacity-100 group-open:max-h-[900px] group-open:opacity-100">
+                    <div className="price-panel mt-4 space-y-4 overflow-hidden">
                       {service.blocks.map(block => (
                         <div key={block.label} className="rounded-3xl border border-white/10 bg-white/5 p-4">
                           <p className="text-[11px] uppercase tracking-[0.22em] text-white/60 mb-2">

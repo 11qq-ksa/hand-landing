@@ -74,6 +74,23 @@ body.light {
   z-index: 1;
 }
 
+details.price-card .price-panel {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.35s ease;
+}
+
+details.price-card[open] .price-panel {
+  max-height: 1200px;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  details.price-card .price-panel {
+    transition: none;
+  }
+}
+
 @keyframes handFlow {
   0% {
     background-position: 0% 0%, 100% 100%;
